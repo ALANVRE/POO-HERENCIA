@@ -1,0 +1,78 @@
+class Persona {
+  nombre: string;
+  apellido: string;
+  numeroIdentificacion: string;
+  estadoCivil: string;
+
+  constructor(nombre: string, apellido: string, numeroIdentificacion: string, estadoCivil: string) {
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.numeroIdentificacion = numeroIdentificacion;
+    this.estadoCivil = estadoCivil;
+  }
+
+  cambioDeEstadoCivil(nuevoEstado: string): void {
+    this.estadoCivil = nuevoEstado;
+  }
+
+  devolverDato(): string {
+    return this.nombre + ' ' + this.apellido;
+  }
+
+  imprimirDatos(): void {
+    console.log('Nombre:', this.nombre);
+    console.log('Apellido:', this.apellido);
+    console.log('Número de Identificación:', this.numeroIdentificacion);
+    console.log('Estado Civil:', this.estadoCivil);
+  }
+}
+
+class Empleado extends Persona{
+  tipo:string;
+  aniodeincorporacion:number;
+  numeroDespacho:number;
+  cambiodespacho(nuevodespacho:number){
+      this.numeroDespacho=nuevodespacho;
+  }
+}
+
+class PersonalServicio extends Empleado{
+  seccion:string;
+  cambiodeseccion(nuevaseccion:string){
+      this.seccion=nuevaseccion;
+  }
+}
+
+class Profesor extends Empleado{
+  Departamento: string
+  cambioDepartamento(nuevoDepartamento:string) {
+    this.Departamento=nuevoDepartamento
+  }
+}
+
+
+const persona1 = new Persona('Juan', 'Pérez', '123456789', 'Soltero');
+console.log("clase persona")
+console.log(persona1)
+console.log("cambio estado civil")
+persona1.cambioDeEstadoCivil("Casado")
+
+
+const empleado1 = new Empleado('Juan', 'Pérez', '123456789', 'Soltero')
+empleado1.numeroDespacho = 12
+empleado1.tipo = "Empleado"
+empleado1.aniodeincorporacion = 2022
+console.log("clase empleado")
+console.log(empleado1)
+console.log("cambio cambio despacho")
+empleado1.cambiodespacho(45)
+
+const personaServico = new PersonalServicio('Juan', 'Pérez', '123456789', 'Soltero')
+personaServico.seccion = "Arreglos"
+console.log(personaServico)
+personaServico.cambiodeseccion("Maquinas")
+
+const profesor1 = new Profesor('Juan', 'Pérez', '123456789', 'Soltero')
+profesor1.Departamento = "Admision" 
+console.log(profesor1)
+profesor1.cambioDepartamento("Facultad")
